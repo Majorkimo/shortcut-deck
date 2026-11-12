@@ -5,7 +5,7 @@ set -euo pipefail
 cd "${0:A:h}/.."
 
 xcodebuild -project ShortcutDeck.xcodeproj -scheme ShortcutDeck -configuration Release \
-  -derivedDataPath build -destination 'platform=macOS' build | grep -E "error:|BUILD" || true
+  -derivedDataPath build -destination 'generic/platform=macOS' build | grep -E "error:|BUILD" || true
 
 app="build/Build/Products/Release/ShortcutDeck.app"
 [[ -d "$app" ]] || { print -u2 "Build fehlgeschlagen"; exit 1; }
